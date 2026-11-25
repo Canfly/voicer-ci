@@ -12,16 +12,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          path: voicer-ci
+      - uses: actions/checkout@v4
+        with:
           repository: adiom/voicer
+          path: voicer
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements_service.txt
+          pip install -r voicer/requirements_service.txt
       - name: Run tests
-        run: python -m pytest tests/ -q
+        run: python -m pytest voicer-ci/tests -q
 
   lint:
     runs-on: ubuntu-latest
