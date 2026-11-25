@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          repository: adiom/voicer
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -25,6 +27,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          repository: adiom/voicer
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -37,6 +41,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          repository: adiom/voicer
       - name: Build Docker image
         run: docker build -t voicer-test:ci .
 
@@ -44,6 +50,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          repository: adiom/voicer
       - name: Install pip-audit
         run: pip install pip-audit
       - name: Security audit
